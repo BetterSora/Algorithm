@@ -23,6 +23,10 @@ public class GeneralArrayStack<T> {
 
     // 将val添加到栈中
     public void push(T value) {
+        if (count == mArray.length) {
+            throw new IndexOutOfBoundsException("stack is full");
+        }
+
         mArray[count++] = value;
     }
 
