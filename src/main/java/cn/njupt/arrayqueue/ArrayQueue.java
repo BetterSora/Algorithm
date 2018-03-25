@@ -2,6 +2,11 @@ package cn.njupt.arrayqueue;
 
 import java.lang.reflect.Array;
 
+//			  |__4_| <--end
+//            |__3_|
+//            |__2_|
+//  start-->  |__1_|
+
 /**
  * Java:数组实现队列，可以存储任意数据
  * @author Qin
@@ -11,6 +16,8 @@ public class ArrayQueue<T> {
     private T[] mArray;
     private static final int DEFAULT_SIZE = 12;
     private int count;
+    private int start;
+    private int end;
 
     public ArrayQueue(Class<T> type, int size) {
         System.out.println("带两个参数的构造器");
@@ -34,7 +41,13 @@ public class ArrayQueue<T> {
 
     // 将val添加到队列的末尾
     public void add(T value) {
-        mArray[count++] = value;
+        if (count == mArray.length) {
+            throw new IndexOutOfBoundsException("Queue is full!");
+        }
+
+        count++;
+        mArray[end] = value;
+        end = end == mArray.length - 1 ? 0 : end + 1;
     }
 
     // 返回队首元素
@@ -43,7 +56,7 @@ public class ArrayQueue<T> {
             throw new IndexOutOfBoundsException("Queue is empty!");
         }
 
-        return mArray[0];
+        return mArray[start];
     }
 
     // 返回队首元素并删除
@@ -52,11 +65,9 @@ public class ArrayQueue<T> {
             throw new IndexOutOfBoundsException("Queue is empty!");
         }
 
-        T res = mArray[0];
-        for (int i = 1; i < count; i++) {
-            mArray[i-1] = mArray[i];
-        }
         count--;
+        T res = mArray[start];
+        start = start == mArray.length - 1 ? 0 : start + 1;
 
         return res;
     }
