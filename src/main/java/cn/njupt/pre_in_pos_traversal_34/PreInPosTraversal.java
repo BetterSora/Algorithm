@@ -4,6 +4,7 @@ import java.util.Stack;
 
 /**
  * 实现二叉树的先序、 中序、 后序遍历， 包括递归方式和非递归方式
+ * @author Qin
  */
 public class PreInPosTraversal {
     public static class Node {
