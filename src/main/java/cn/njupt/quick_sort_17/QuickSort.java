@@ -1,6 +1,7 @@
 package cn.njupt.quick_sort_17;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * 随机快排(O(N*logN))
@@ -16,13 +17,14 @@ public class QuickSort {
     }
 
     public static void quickSort(int[] arr, int L, int R) {
-        if (L < R) {
-            swap(arr, R, L + ((int) ((R - L + 1) * Math.random())));
+        if (L >= R) return;
 
-            int[] p = partition(arr, L, R);
-            quickSort(arr, L, p[0] - 1);
-            quickSort(arr, p[1] + 1, R);
-        }
+        int index = L + ((int) ((R - L + 1) * Math.random()));
+
+        /*int[] p = partition(arr, L, R);*/
+        int[] p = partition(arr, L, R, arr[index]);
+        quickSort(arr, L, p[0] - 1);
+        quickSort(arr, p[1] + 1, R);
     }
 
     public static int[] partition(int[] arr, int L, int R) {
@@ -40,6 +42,24 @@ public class QuickSort {
         }
 
         swap(arr, more, R);
+
+
+        return new int[] {less + 1, more - 1};
+    }
+
+    public static int[] partition(int[] arr, int L, int R, int num) {
+        int less = L - 1;
+        int more = R + 1;
+
+        while (L < more) {
+            if (arr[L] < num) {
+                swap(arr, ++less, L++);
+            } else if (arr[L] > num) {
+                swap(arr, --more, L);
+            } else {
+                L++;
+            }
+        }
 
         return new int[] {less + 1, more - 1};
     }

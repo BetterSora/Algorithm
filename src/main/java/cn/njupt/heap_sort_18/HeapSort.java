@@ -5,6 +5,10 @@ import java.util.Arrays;
 /**
  * 堆排序(O(N*logN))
  * 生成堆(O(logN))
+ *
+ * 性质一：索引为i的左孩子的索引是 (2*i+1);
+ * 性质二：索引为i的右孩子孩子的索引是 (2*i+2);
+ * 性质三：索引为i的父结点的索引是 floor((i-1)/2);
  * @author Qin
  */
 public class HeapSort {
@@ -55,9 +59,12 @@ public class HeapSort {
     }
 
     public static void swap(int[] arr, int i, int j) {
-        int tmp = arr[i];
+        /*int tmp = arr[i];
         arr[i] = arr[j];
-        arr[j] = tmp;
+        arr[j] = tmp;*/
+        arr[i] = arr[i] ^ arr[j];
+        arr[j] = arr[i] ^ arr[j];
+        arr[i] = arr[i] ^ arr[j];
     }
 
     // for test
