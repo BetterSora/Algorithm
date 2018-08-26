@@ -4,6 +4,8 @@ import cn.njupt.bubble_sort_11.BubbleSort;
 
 /**
  * 归并排序(O(N*logN))
+ *
+ * 归并为什么快？两个有序数组进行外排的时候，没有浪费比较，有序这件事情在后面被用上了，而冒泡每次排好后对下次没有作用
  * @author Qin
  */
 public class MergeSort {
@@ -22,11 +24,13 @@ public class MergeSort {
             return;
         }
 
-        int mid = L + ((R - L) >> 1);
+        int mid = L + ((R - L) >> 1); // 防止溢出
 
+        // 左边排好序
         mergeSort(arr, L, mid);
+        // 右边排好序
         mergeSort(arr, mid + 1, R);
-
+        // 外排整合
         merge(arr, L, mid, R);
     }
 

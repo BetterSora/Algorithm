@@ -4,14 +4,20 @@ import java.util.Arrays;
 
 /**
  * 冒泡排序(O(N^2))，并且用对数器进行验证
+ *
+ * 0~N-1 比较了N-1次
+ * 0~N-2 比较了N-2次
+ * ......
+ *
  * @author Qin
  */
 public class BubbleSort {
     public static void bubbleSort(int[] arr) {
-        for (int i = arr.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (arr[j] > arr[j+1]) {
-                    swap(arr, j, j+1);
+        // 每次排好一个数，最大的到末尾，end限制范围
+        for (int end = arr.length - 1; end > 0; end--) {
+            for (int i = 0; i < end; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    swap(arr, i, i + 1);
                 }
             }
         }

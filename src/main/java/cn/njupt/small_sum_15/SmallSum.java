@@ -44,6 +44,7 @@ public class SmallSum {
         int res = 0;
 
         while (p1 <= m && p2 <= R) {
+            // 找右边有多少个数比cur要大
             res += arr[p1] < arr[p2] ? (arr[p1] * (R - p2 + 1)) : 0;
             help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
         }
