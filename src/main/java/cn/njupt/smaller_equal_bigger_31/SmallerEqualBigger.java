@@ -58,6 +58,7 @@ public class SmallerEqualBigger {
         Node bT = null;
         Node next = null;
 
+        // 按要求将数据分成三部分分别放入三个链表中
         while (head != null) {
             next = head.next;
             head.next = null;
@@ -90,12 +91,14 @@ public class SmallerEqualBigger {
             head = next;
         }
 
+        // 三个链表都存在
         if (sT != null && eT != null && bT != null) {
             sT.next = eH;
             eT.next = bH;
             return sH;
         }
 
+        // 有一个链表为空
         if (eT != null && bT != null) {
             eT.next = bH;
             return eH;
@@ -111,6 +114,7 @@ public class SmallerEqualBigger {
             return sH;
         }
 
+        // 有两个链表为空或者所有链表都为空
         return bT != null ? bH : sT != null ? sH : eT != null ? eH : null;
     }
 

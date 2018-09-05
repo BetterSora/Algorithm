@@ -26,6 +26,7 @@ public class ZigZagPrintMatrix {
     }
 
     public static void printLevel(int[][] matrix, int tR, int tC, int dR, int dC, boolean flag) {
+        // 根据flag判断是正向打印还是反向打印
         if (flag) {
             while (tR != dR + 1) {
                 System.out.print(matrix[tR++][tC--] + " ");

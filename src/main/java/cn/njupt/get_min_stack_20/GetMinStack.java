@@ -10,7 +10,9 @@ import java.util.Stack;
  * @author Qin
  */
 public class GetMinStack {
+    // 存储数据
     private Stack<Integer> stackData;
+    // 存储最小值
     private Stack<Integer> stackMin;
 
     public GetMinStack() {

@@ -10,6 +10,9 @@ import java.util.Stack;
  * @author Qin
  */
 public class StackAndQueueConvert {
+    /**
+     * 两个队列实现栈
+     */
     public static class TwoQueuesStack {
         private Queue<Integer> queue;
         private Queue<Integer> help;
@@ -59,6 +62,9 @@ public class StackAndQueueConvert {
         }
     }
 
+    /**
+     * 两个栈实现队列
+     */
     public static class TwoStacksQueue {
         private Stack<Integer> stackPush;
         private Stack<Integer> stackPop;
@@ -72,7 +78,7 @@ public class StackAndQueueConvert {
             stackPush.push(num);
         }
 
-        public int pull() {
+        public int poll() {
             if (stackPush.isEmpty() && stackPop.isEmpty()) {
                 throw new RuntimeException("Queue is empty");
             }

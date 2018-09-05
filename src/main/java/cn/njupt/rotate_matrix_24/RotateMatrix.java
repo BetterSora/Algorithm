@@ -17,8 +17,10 @@ public class RotateMatrix {
     }
 
     public static void rotateEdge(int[][] matrix, int tR, int tC, int dR, int dC) {
+        // 每次循环转对四个点
         for (int i = tC; i < dC; i++) {
             int tmp = matrix[tR][tC + i];
+            // 从左下角的点开始旋转
             matrix[tR][tC + i] = matrix[dR - i][tC];
             matrix[dR - i][tC] = matrix[dR][dC - i];
             matrix[dR][dC - i] = matrix[tR + i][dC];

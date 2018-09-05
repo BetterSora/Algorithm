@@ -15,9 +15,10 @@ public class FindNumInSortedMatrix {
         }
 
         while (row < matrix.length && column > -1) {
+            // 如果需要查找的数大于每一行最后一个数直接跳下一行
             if (k > matrix[row][column]) {
                 row++;
-            } else if (k < matrix[row][column]) {
+            } else if (k < matrix[row][column]) { // 否则，在行内向前遍历
                 column--;
             } else {
                 return true;

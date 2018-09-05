@@ -58,7 +58,8 @@ public class IsPalindromeList {
             n2 = n2.next.next;
         }
 
-        // n2指向右半部分第一个节点
+        // n2指向右半部分第一个节点，将n2开始的链表反转
+        // n1:pre指针 n2:当前指针 n3:保存下一个节点的指针
         n2 = n1.next;
         n1.next = null;
         Node n3 = null;
@@ -69,7 +70,7 @@ public class IsPalindromeList {
             n2 = n3;
         }
         // 保存最后一个节点的指针
-        n3 = n1;
+        n3 = n1; // 反转完成后n1指向最后一个节点
         n2 = head;
         boolean res =true;
 
