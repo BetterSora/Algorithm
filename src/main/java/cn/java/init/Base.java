@@ -1,4 +1,4 @@
-package cn.njupt.init;
+package cn.java.init;
 
 /**
  * Java初始化流程

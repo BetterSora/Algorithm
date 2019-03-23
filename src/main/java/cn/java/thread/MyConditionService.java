@@ -1,4 +1,4 @@
-package cn.njupt.thread;
+package cn.java.thread;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

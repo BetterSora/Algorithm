@@ -1,4 +1,4 @@
-package cn.njupt.init;
+package cn.java.init;
 
 public class SubClass extends Base {
     public String var = getString("子类初始化非静态变量");
